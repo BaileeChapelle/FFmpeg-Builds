@@ -39,7 +39,16 @@ cat <<EOF >"$BUILD_SCRIPT"
         --extra-cflags="\$FF_CFLAGS" --extra-cxxflags="\$FF_CXXFLAGS" --extra-libs="\$FF_LIBS" \
         --extra-ldflags="\$FF_LDFLAGS" --extra-ldexeflags="\$FF_LDEXEFLAGS" \
         --cc="\$CC" --cxx="\$CXX" --ar="\$AR" --ranlib="\$RANLIB" --nm="\$NM" \
-        --extra-version="\$(date +%Y%m%d)" --enable-nonfree --enable-libfdk-aac --enable-shared
+        --extra-version="14th-Gen-QSV-NonFree-\$(date +%Y%m%d)" \
+        --enable-nonfree \
+        --enable-libfdk-aac \
+        --enable-shared \
+        --disable-static \
+        --enable-libvpl \
+        --enable-vaapi \
+        --enable-d3d11va \
+        --enable-dxva2
+        
     make -j\$(nproc) V=1
     make install install-doc
 EOF
