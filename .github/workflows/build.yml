@@ -191,9 +191,6 @@ jobs:
       matrix:
         target: [win64,linux64,linuxarm64]
         variant: [nonfree-shared]
-        include:
-          - target: win64
-            variant: gpl 7.0
     steps:
       - name: Free Disk-Space
         run: df -h && sudo apt-get clean && docker system prune -a -f && sudo rm -rf /opt/ghc /usr/local/.ghcup /usr/local/lib/android && df -h
